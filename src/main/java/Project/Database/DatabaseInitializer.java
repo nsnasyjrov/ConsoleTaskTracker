@@ -1,5 +1,7 @@
 package Project.Database;
 
+import Project.Task.TaskControlMethods;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,26 +13,6 @@ public class DatabaseInitializer {
     private static final String PASS = "springcourse"; // Замените на ваш пароль
 
     public void initialize() {
-        try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASS)) {
-            System.out.println("Подключение к MySQL успешно установлено.");
-
-            // Создание базы данных
-            createDatabase(connection);
-
-            // Подключение к созданной базе данных
-            try (Connection dbConnection = DriverManager.getConnection(DB_URL + "/taskschema", USER, PASS)) {
-                System.out.println("Подключение к базе данных taskschema успешно установлено.");
-
-                // Создание таблицы для задач
-                createTaskTable(dbConnection);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void main(String[] args) {
         try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASS)) {
             System.out.println("Подключение к MySQL успешно установлено.");
 

@@ -1,6 +1,8 @@
 package Project.Task;
 
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -19,17 +21,21 @@ public class Task {
     private String status;
 
     // дата добавления задачи
-    @Column(name = "created_date", nullable = false)
+    @Column(name = "createdAt", nullable = false)
+    @CreationTimestamp
     private Date createdAt;
-    @Column(name = "updated_date")
+    @Column(name = "updatedAt")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt; // дата обновления задачи
 
     public Task() {
+        this.status = "TODO";
+        this.createdAt = new Date();
     }
 
-    public Task(String description, String status) {
+    public Task(String description) {
         this.description = description;
-        this.status = status;
+        this.status = "TODO";
         this.createdAt = new Date();
     }
 
@@ -66,12 +72,19 @@ public class Task {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedDate() {
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public Date getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedDate(Date updatedAt) {
+    public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+    public void updateTask() {
+        this.updatedAt = new Date();
     }
 }
 
