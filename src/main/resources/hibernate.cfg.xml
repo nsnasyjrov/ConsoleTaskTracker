@@ -7,8 +7,8 @@
         <!-- Подставьте здесь данные своего подключения в MySQL-->
         <property name="connection.url">jdbc:mysql://localhost:3307/taskschema?useSSL=false</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.username">nail</property>
-        <property name="connection.password">springcourse</property>
+        <property name="connection.username">user</property>
+        <property name="connection.password">password</property>
 
         <!-- Диалект базы данных -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>

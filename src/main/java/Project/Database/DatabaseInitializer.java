@@ -9,8 +9,8 @@ import java.sql.Statement;
 
 public class DatabaseInitializer {
     private static final String DB_URL = "jdbc:mysql://localhost:3307";
-    private static final String USER = "nail"; // Замените на вашего пользователя
-    private static final String PASS = "springcourse"; // Замените на ваш пароль
+    private static final String USER = "user"; // Замените на вашего пользователя
+    private static final String PASS = "password"; // Замените на ваш пароль
 
     public void initialize() {
         try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASS)) {
